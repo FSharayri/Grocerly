@@ -3,38 +3,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    rel="shortcut icon"
-    type="image/png"
-    href=""
-  >
-  <title>Grocerly</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-  {% block head %}
-  {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        rel="shortcut icon"
+        type="image/png"
+        href="{% static "images/favicon.png" %}"
+    >
+    <title>Grocerly</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
-  <header>
-    <div class="header-logo-container">
-      <a href="/">
-        <img 
-          src="{% static "images/logo.png" %}"
-          alt="Grocerly Logo"
-        >
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="{% url "about" %}">About</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <header>
+        <div class="header-logo-container">
+        <a href="/">
+            <img 
+            src="{% static "images/logo.png" %}"
+            alt="Grocerly Logo"
+            >
+        </a>
+        </div>
+        <nav>
+        <ul>
+
+            <li><a href="{% url "shopping-list" %}">My Shopping List</a></li>
+            <li><a href="{% url "about" %}">About</a></li>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>
