@@ -32,7 +32,7 @@ def shopping_list_by_cat(request,cat):
         for key, value in CATEGORY_CHOICES:
             if value == category_name:
                 return key
-    print(get_category_key_by_name(cat))
+    
     items_by_cat = items.filter(category = get_category_key_by_name(cat))
     return render(request, 'items/index-cat.html', {'items':items_by_cat, 'categories': categories})
 
