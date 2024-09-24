@@ -7,7 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
+# views.
 class Home(LoginView):
     template_name= 'home.html'
 
@@ -22,6 +22,7 @@ def shopping_list(request):
         categories.append(item.get_full_category_name())
     return render(request, 'items/index.html', {'items':items, 'categories': categories})
 
+@login_required
 def shopping_list_by_cat(request,cat):
     items = Item.objects.filter(user=request.user, purchased = False)
     categories = []

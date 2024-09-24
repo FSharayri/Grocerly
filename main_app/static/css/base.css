@@ -61,6 +61,8 @@ body {
 /* Main Content */
 .main-content {
     padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* User Info */

@@ -13,35 +13,33 @@
 
 <section class="page-header">
   <h1 class="page-title">My Shopping List</h1>
-  
 </section>
 
-<main>
-
+<main class="main-content-cat">
+  <!-- Sidebar Navigation -->
   <nav class="category-nav">
-    
     <ul class="category-list">
       <li class="category-item"><a href="{% url 'shopping-list' %}" class="category-link">All</a></li>
       {% for category in categories %}
-      <li class="category-item"><a href="{% url 'shopping-list-filtered' category %}?category={{ category.id }}" class="category-link">{{ category }}</a></li>
+      <li class="category-item"><a href="{% url 'shopping-list-filtered' category %}" class="category-link">{{ category }}</a></li>
       {% endfor %}
     </ul>
   </nav>
-<section class="card-container">
-  
-  {% for item in items %}
-  
+
+  <!-- Main section for items listing -->
+  <section class="card-container">
+    {% for item in items %}
     <div class="card">
       <a href="{% url "item-detail" item.id %}" class="card-link">
-      <div class="card-content">
-        <h2 class="card-title">{{ item.name }}</h2>
-        <p class="card-quantity"><small>{{ item.quantity }}</small></p>
-      </div>
+        <div class="card-content">
+          <h2 class="card-title">{{ item.name }}</h2>
+          <p class="card-quantity"><small>{{ item.quantity }}</small></p>
+        </div>
       </a>
       <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">✔ Mark as Purchased</a>
     </div>
-
-  {% endfor %}
-</section>
+    {% endfor %}
+  </section>
 </main>
+
 {% endblock %}
