@@ -48,13 +48,13 @@ class ItemCreate(LoginRequiredMixin,CreateView):
     def form_valid(self,form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 #U
 class ItemUpdate(LoginRequiredMixin,UpdateView):
     model = Item
     fields =  ['name', 'quantity', 'category', 'purchased']
+
 #D
-
-
 class ItemDelete(DeleteView):
     model = Item
     success_url = '/items/'
@@ -63,8 +63,6 @@ class ItemDelete(DeleteView):
     #Cat.objects.filter(age__lte=3)
     #Cat.objects.get(id=1)
     #Cat.objects.order_by('name')
-
-
 
 
 def signup(request):
@@ -78,7 +76,6 @@ def signup(request):
             return redirect('shopping-list')
         else: 
             error_message= 'Invalid sign up - try again'
-
     # if method is get or sign up is invalid 
     form = UserCreationForm()
     context= {'form':form ,'error_message': error_message}
