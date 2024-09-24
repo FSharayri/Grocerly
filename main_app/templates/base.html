@@ -6,43 +6,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        rel="shortcut icon"
-        type="image/png"
-        href="{% static "images/favicon.png" %}"
-    >
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <title>Grocerly</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     {% block head %}
     {% endblock %}
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="header-logo-container">
-        <a href="/">
-            <img 
-            src="{% static "images/favicon.png" %}"
-            alt="Grocerly Logo"
-            >
-        </a>
+            <a href="/">
+                <img src="{% static 'images/favicon.png' %}" alt="Grocerly Logo" class="header-logo">
+            </a>
         </div>
-        <nav>
-        <ul>
-            {% if user.is_authenticated %}
-            <li><a href="{% url "shopping-list" %}">My Shopping List</a></li>
-            <li><a href="{% url "history" %}">Previous Items</a></li>
-            <li><a href="{% url "item-create" %}">Add Item</a></li>
-            <li><a href="{% url "about" %}">About</a></li>
-            <li><a href="{% url "logout" %}">Log Out</a></li>
-            {% else %}
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'home' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            {% endif %}
-        </ul>
+        <nav class="nav">
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url "shopping-list" %}" class="nav-link">My Shopping List</a></li>
+                <li class="nav-item"><a href="{% url "history" %}" class="nav-link">Previous Items</a></li>
+                <li class="nav-item"><a href="{% url "item-create" %}" class="nav-link">Add Item</a></li>
+                <li class="nav-item"><a href="{% url "about" %}" class="nav-link">About</a></li>
+                <li class="nav-item nav-user"><p>Logged in as {{ user }}</p> <a href="{% url "logout" %}" class="nav-link">Log Out</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
-    <main>
+    <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>

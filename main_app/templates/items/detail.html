@@ -2,11 +2,6 @@
 {% load static %}
 
 {% block head %}
-<link 
-  rel="stylesheet" 
-  href="{% static "css/items/item-detail.css" %}"
-  type="text/css"  
->
 {% endblock %}
 
 {% block content %}
@@ -16,11 +11,15 @@
     <h1 class="item-title">{{ item.name }}</h1>
     <h2 class="item-quantity">Quantity: {{ item.quantity }}</h2>
     <h2 class="item-added-at">Added at: {{ item.added_at }}</h2>
-    
-    
+
     <div class="item-actions">
-      <a href="{% url "item-update" item.id %}" class="btn btn-warn">Edit</a>
-      <a href="{% url "item-delete" item.id %}" class="btn btn-danger">Delete</a>
+      <a href="{% url 'item-update' item.id %}" class="btn btn-warn">Edit</a>
+      <a href="{% url 'item-delete' item.id %}" class="btn btn-danger">Delete</a>
+    </div>
+
+    <!-- Mark as Purchased button -->
+    <div class="mark-purchased-container">
+      <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">✔ Mark as Purchased</a>
     </div>
   </div>
 </section>

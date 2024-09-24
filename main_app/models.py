@@ -56,5 +56,3 @@ class Item(models.Model):
 
     def get_absolute_url(self):
         return reverse('item-detail', kwargs={'item_id': self.id})
-
-    

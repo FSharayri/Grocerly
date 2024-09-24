@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Item
 from .forms import ItemForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -23,7 +22,7 @@ def shopping_list(request):
 @login_required
 def history(request):
     items = Item.objects.filter(user=request.user, purchased = True)
-    return render(request, 'items/index.html', {'items':items})
+    return render(request, 'items/history.html', {'items':items})
 
 @login_required
 def item_detail(request, item_id):
@@ -36,9 +35,12 @@ def item_detail(request, item_id):
 @login_required
 def mark_purchased(request, item_id):
     item = Item.objects.get(id=item_id)
-    item.purchased = True
+    item.purchased = not item.purchased
     item.save()
-    return redirect('item-detail', item_id=item_id)
+    if item.purchased:
+        return redirect('history')
+    else:
+        return redirect('shopping-list')
 
 #C
 class ItemCreate(LoginRequiredMixin,CreateView):
@@ -54,7 +56,7 @@ class ItemUpdate(LoginRequiredMixin,UpdateView):
     fields =  ['name', 'quantity', 'category', 'purchased']
 
 #D
-class ItemDelete(DeleteView):
+class ItemDelete(LoginRequiredMixin,DeleteView):
     model = Item
     success_url = '/items/'
     #Cat.objects.filter(name='Rubber Biscuit')

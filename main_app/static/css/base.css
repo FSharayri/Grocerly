@@ -1,87 +1,79 @@
-/* base.css */
-
-html, body {
+/* General Styles */
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;  /* Dark background */
-    color: #FFFFFF;  /* White text */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-header {
-    background-color: #1F1F1F;  /* Slightly lighter for header */
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #333;
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.header-logo-container img {
-    max-width: 150px;  /* Adjust logo size */
+.header-logo-container {
+    display: flex;
+    align-items: center;
 }
 
-nav ul {
-    list-style-type: none;
+.header-logo {
+    width: 50px;
+    height: auto;
+}
+
+/* Navigation */
+.nav {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.nav-list {
+    list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    gap: 15px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+.nav-item {
+    display: flex;
+    align-items: center;
 }
 
-nav ul li a {
-    color: #FFFFFF;
+.nav-link {
     text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    transition: color 0.3s ease;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
-nav ul li a:hover {
-    color: #BBBBBB;  /* Lighter hover color */
+.nav-link:hover {
+    background-color: #e0e0e0;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Main Content */
+.main-content {
+    padding: 40px 30px;
 }
 
-a {
-    color: #FFFFFF;
+/* User Info */
+.nav-user p {
+    margin-right: 10px;
+    color: #888;
+}
+
+.nav-user a {
+    color: #d9534f;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-a:hover {
-    color: #BBBBBB;  /* Subtle hover effect */
+.nav-user a:hover {
+    text-decoration: underline;
 }
-
-button {
-    background-color: #333;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-button:hover {
-    background-color: #444;
-}
-
-input[type="text"], input[type="number"] {
-    background-color: #1F1F1F;
-    color: #FFFFFF;
-    border: 1px solid #333;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-
-input[type="text"]:focus, input[type="number"]:focus {
-    outline: none;
-    bo

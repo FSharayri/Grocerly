@@ -12,8 +12,8 @@
 {% block content %}
 
 <section class="page-header">
-  <h1 class="page-title">My Shopping List</h1>
-  
+  <h1 class="page-title">Previous Items</h1>
+
 </section>
 
 <section class="card-container">
@@ -27,9 +27,7 @@
         </div>
         <h2 class="card-title">{{ item.name }}</h2>
         <p class="card-quantity"><small>{{ item.quantity }}</small></p>
-
-        <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">✔ Mark as Purchased</a>
-        
+        <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">Add to Shopping list</a>
       </div>
     </a>
     </div>
