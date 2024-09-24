@@ -23,7 +23,7 @@
     <ul class="category-list">
       <li class="category-item"><a href="{% url 'shopping-list' %}" class="category-link">All</a></li>
       {% for category in categories %}
-      <li class="category-item"><a href="{% url 'shopping-list-filtered' category %}" class="category-link">{{ category }}</a></li>
+      <li class="category-item"><a href="{% url 'shopping-list-filtered' category %}?category={{ category.id }}" class="category-link">{{ category }}</a></li>
       {% endfor %}
     </ul>
   </nav>

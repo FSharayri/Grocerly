@@ -13,8 +13,8 @@
     <h2 class="item-added-at">Added at: {{ item.added_at }}</h2>
 
     <div class="item-actions">
-      <a href="{% url 'item-update' item.id %}" class="btn btn-warn">Edit</a>
-      <a href="{% url 'item-delete' item.id %}" class="btn btn-danger">Delete</a>
+      <a href="{% url 'item-update' item.id %}" class="btn btn-edit">Edit</a>
+      <a href="{% url 'item-delete' item.id %}" class="btn btn-delete">Delete</a>
     </div>
 
     <!-- Mark as Purchased button -->

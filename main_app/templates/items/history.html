@@ -21,15 +21,12 @@
   
     <div class="card">
       <a href="{% url "item-detail" item.id %}" class="card-link">
-      <div class="card-content">
-        <div class="card-img-container">
-          <!-- You can add an image or icon here -->
+        <div class="card-content">
+          <h2 class="card-title">{{ item.name }}</h2>
+          <p class="card-quantity"><small>{{ item.quantity }}</small></p>
         </div>
-        <h2 class="card-title">{{ item.name }}</h2>
-        <p class="card-quantity"><small>{{ item.quantity }}</small></p>
-        <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">Add to Shopping list</a>
-      </div>
-    </a>
+      </a>
+      <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">Add to Shopping list</a>
     </div>
   
   {% endfor %}

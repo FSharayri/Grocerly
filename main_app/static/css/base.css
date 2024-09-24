@@ -77,3 +77,48 @@ body {
 .nav-user a:hover {
     text-decoration: underline;
 }
+
+.mark-purchased-btn {
+    display: inline-block;
+    align-content: center;
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.mark-purchased-btn:hover {
+    background-color: #218838;
+}
+
+.mark-purchased-container {
+    margin-top: 20px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    margin-right: 10px;
+}
+
+.btn-edit {
+    background-color: #5bc0de;
+}
+.btn-edit:hover {
+    background-color: #31b0d5;
+}
+.btn-delete {
+    background-color: #d9534f;
+}
+
+.btn-delete:hover {
+    background-color: #c9302c;
+}

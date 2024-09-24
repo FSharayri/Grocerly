@@ -39,7 +39,7 @@ class Item(models.Model):
     quantity = models.PositiveIntegerField(default=1) 
     purchased = models.BooleanField(default=False)
     added_at = models.DateTimeField(auto_now_add=True) 
-    category = category = models.CharField(
+    category = models.CharField(
         max_length=4, 
         choices=CATEGORY_CHOICES,
         default='OTH'

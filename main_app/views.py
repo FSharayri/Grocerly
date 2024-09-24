@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Item
+from .models import Item , CATEGORY_CHOICES
 from .forms import ItemForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
@@ -17,7 +17,24 @@ def about(request):
 @login_required
 def shopping_list(request):
     items = Item.objects.filter(user=request.user, purchased = False)
-    return render(request, 'items/index.html', {'items':items})
+    categories = []
+    for item in items:
+        categories.append(item.get_full_category_name())
+    return render(request, 'items/index.html', {'items':items, 'categories': categories})
+
+def shopping_list_by_cat(request,cat):
+    items = Item.objects.filter(user=request.user, purchased = False)
+    categories = []
+    for item in items:
+        categories.append(item.get_full_category_name())
+
+    def get_category_key_by_name(category_name): # you have to own pride in such a method... ! 
+        for key, value in CATEGORY_CHOICES:
+            if value == category_name:
+                return key
+    print(get_category_key_by_name(cat))
+    items_by_cat = items.filter(category = get_category_key_by_name(cat))
+    return render(request, 'items/index-cat.html', {'items':items_by_cat, 'categories': categories})
 
 @login_required
 def history(request):
@@ -37,7 +54,7 @@ def mark_purchased(request, item_id):
     item = Item.objects.get(id=item_id)
     item.purchased = not item.purchased
     item.save()
-    if item.purchased:
+    if not item.purchased:
         return redirect('history')
     else:
         return redirect('shopping-list')
@@ -68,7 +85,7 @@ class ItemDelete(LoginRequiredMixin,DeleteView):
 
 def signup(request):
     error_message = ''
-    # if method is post 
+    # post 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -77,7 +94,7 @@ def signup(request):
             return redirect('shopping-list')
         else: 
             error_message= 'Invalid sign up - try again'
-    # if method is get or sign up is invalid 
+    # get or sign up is invalid 
     form = UserCreationForm()
     context= {'form':form ,'error_message': error_message}
     return render(request, 'signup.html', context)

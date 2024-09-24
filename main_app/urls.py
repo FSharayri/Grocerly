@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.Home.as_view(), name='home'),
     path('about/', views.about, name='about'),
     path('items/', views.shopping_list, name='shopping-list'),
+    path('items/<str:cat>', views.shopping_list_by_cat, name='shopping-list-filtered'),
     path('history/', views.history, name='history'),
     path('items/<int:item_id>/', views.item_detail, name='item-detail'),
     path('items/create', views.ItemCreate.as_view(), name='item-create'),
