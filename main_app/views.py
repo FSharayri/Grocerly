@@ -17,7 +17,8 @@ def about(request):
 
 @login_required
 def shopping_list(request):
-    items = Item.objects.filter(user=request.user)
+    items = Item.objects.filter(user=request.user, purchased = False)
+
     #Cat.objects.filter(name='Rubber Biscuit')
     #Cat.objects.filter(name__contains='Bis')
     #Cat.objects.filter(age__lte=3)
@@ -26,3 +27,9 @@ def shopping_list(request):
     return render(request, 'items/index.html', {'items':items})
 
 
+def item_detail(request, item_id):
+    item = Item.objects.get(id=item_id)
+    item_form = ItemForm()
+    return render(request,'items/detail.html',{ 
+        'item':item, 'item_form': item_form,
+    })
