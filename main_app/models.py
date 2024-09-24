@@ -53,4 +53,8 @@ class Item(models.Model):
 
     class Meta:
         ordering = ['purchased', 'added_at']
+
+    def get_absolute_url(self):
+        return reverse('item-detail', kwargs={'item_id': self.id})
+
     

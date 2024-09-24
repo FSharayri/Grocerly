@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<section >
+  <div class="item-details">
+    <h1>{{ item.name }}</h1>
+      <h2>Quantity: {{ item.quantity }} </h2>
+      <h2>added at: {{ item.added_at }} </h2>
+    <div class="item-actions">
+      <a href="{% url "item-update" item.id %}" class='btn warn'>Edit</a>
+      <a href="{% url "item-delete" item.id %}" class='btn danger'>Delete</a>
+    </div>
+  </div>
+
+    
+</div>
+
+{% endblock %}
