@@ -35,7 +35,6 @@ def item_detail(request, item_id):
 
 @login_required
 def mark_purchased(request, item_id):
-    
     item = Item.objects.get(id=item_id)
     item.purchased = True
     item.save()

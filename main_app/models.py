@@ -9,7 +9,7 @@ from django.db import models
 
 from django.db import models
 
-
+#groceries categories tuple of tuples. to save data effeciently and to have a more effecient way to filter this later on
 CATEGORY_CHOICES = [
     ('FR', 'Fresh Produce'),
     ('DA', 'Dairy'),
@@ -49,7 +49,7 @@ class Item(models.Model):
         return f"{self.name} - {self.quantity}"
 
     def get_full_category_name(self):
-        return self.get_category_display()
+        return self.get_category_display()# this is an awesome method thanks Django !!! 
 
     class Meta:
         ordering = ['purchased', 'added_at']
