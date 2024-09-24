@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Item
 from .forms import ItemForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -33,6 +33,14 @@ def item_detail(request, item_id):
         'item':item, 'item_form': item_form,
     })
 
+@login_required
+def mark_purchased(request, item_id):
+    
+    item = Item.objects.get(id=item_id)
+    item.purchased = True
+    item.save()
+    return redirect('item-detail', item_id=item_id)
+
 #C
 class ItemCreate(LoginRequiredMixin,CreateView):
     model = Item
@@ -45,6 +53,8 @@ class ItemUpdate(LoginRequiredMixin,UpdateView):
     model = Item
     fields =  ['name', 'quantity', 'category', 'purchased']
 #D
+
+
 class ItemDelete(DeleteView):
     model = Item
     success_url = '/items/'
@@ -54,12 +64,6 @@ class ItemDelete(DeleteView):
     #Cat.objects.get(id=1)
     #Cat.objects.order_by('name')
 
-def switch_purchased(request, item_id):
-    
-    item = Item.objects.get(id=item_id)
-    item.purchased = not item.purchased
-    item.save()
-    return redirect('item-detail', item_id=item_id)
 
 
 
