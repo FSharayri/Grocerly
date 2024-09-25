@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #d9534f;
+}
+
+.page-header h2 {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.delete-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  background-color: #5bc0de;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #31b0d5;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
