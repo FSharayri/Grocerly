@@ -3,10 +3,6 @@ from django.urls import reverse
 from datetime import date
 # Create your models here.
 from django.contrib.auth.models import User
-
-# Create your models here.
-from django.db import models
-
 from django.db import models
 
 #groceries categories tuple of tuples. to save data effeciently and to have a more effecient way to filter this later on
@@ -52,7 +48,7 @@ class Item(models.Model):
         return self.get_category_display()# this is an awesome method thanks Django !!! 
 
     class Meta:
-        ordering = ['purchased', 'added_at']
+        ordering = ['added_at']
 
     def get_absolute_url(self):
         return reverse('item-detail', kwargs={'item_id': self.id})

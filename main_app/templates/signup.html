@@ -9,7 +9,6 @@
 
 <div class="page-header">
   <h1>Sign Up</h1>
-  <img src="{% static 'images/favicon.png' %}" alt="Grocerly logo"/>
 </div>
 {% if error_message %}
   <p class="red-text">{{ error_message }}</p>
@@ -19,7 +18,7 @@
   <table>
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn submit">Sign Up!</button>
+  <button type="submit" class="submit-btn">Sign Up!</button>
 </form>
 
 {% endblock %}

@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/items/item-detail.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <section class="item-details-container">
-  <div class="item-details">
+  <div class="item-details-card">
     <h1 class="item-title">{{ item.name }}</h1>
     <h2 class="item-quantity">Quantity: {{ item.quantity }}</h2>
     <h2 class="item-added-at">Added at: {{ item.added_at }}</h2>
@@ -15,11 +16,6 @@
     <div class="item-actions">
       <a href="{% url 'item-update' item.id %}" class="btn btn-edit">Edit</a>
       <a href="{% url 'item-delete' item.id %}" class="btn btn-delete">Delete</a>
-    </div>
-
-    <!-- Mark as Purchased button -->
-    <div class="mark-purchased-container">
-      <a href="{% url 'mark-purchased' item.id %}" class="mark-purchased-btn">✔ Mark as Purchased</a>
     </div>
   </div>
 </section>

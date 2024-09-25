@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Logo Section */
+  .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+  }
+  
+  .logo-container {
+    text-align: center;
+  }
+  
+  .logo-img {
+    width: 150px;
+    height: auto;
+  }
+  
+  /* Login Section */
+  .login-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .login-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-title {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Input fields inside the form */
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #66afe9;
+    outline: none;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4cae4c;
+  }
+  

@@ -7,20 +7,22 @@
 
 {% block content %}
 
-<section >
-  <div >
-    <img src="{% static 'images/favicon.png' %}" alt="Grocerly logo" />
+<!-- Logo Section -->
+<section class="logo-section">
+  <div class="logo-container">
+    <img src="{% static 'images/favicon.png' %}" alt="Grocerly logo" class="logo-img" />
   </div>
 </section>
 
+<!-- Login Section (only if the user is not authenticated) -->
 {% if not user.is_authenticated %}
-  <section>
-    <form action="{% url "home" %}" method="post" class="login">
+  <section class="login-section">
+    <form action="{% url "home" %}" method="post" class="login-form">
       {% csrf_token %}
-      <h1>Login</h1>
+      <h1 class="login-title">Login</h1>
       {{ form.as_p }}
       <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn submit">Login</button>
+      <button type="submit" class="btn submit-btn">Login</button>
     </form>
   </section>
 {% endif %}

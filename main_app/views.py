@@ -7,6 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 # views.
 class Home(LoginView):
     template_name= 'home.html'
@@ -77,12 +78,6 @@ class ItemUpdate(LoginRequiredMixin,UpdateView):
 class ItemDelete(LoginRequiredMixin,DeleteView):
     model = Item
     success_url = '/items/'
-    #Cat.objects.filter(name='Rubber Biscuit')
-    #Cat.objects.filter(name__contains='Bis')
-    #Cat.objects.filter(age__lte=3)
-    #Cat.objects.get(id=1)
-    #Cat.objects.order_by('name')
-
 
 def signup(request):
     error_message = ''
@@ -99,4 +94,3 @@ def signup(request):
     form = UserCreationForm()
     context= {'form':form ,'error_message': error_message}
     return render(request, 'signup.html', context)
-    

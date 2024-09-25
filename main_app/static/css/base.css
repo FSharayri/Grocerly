@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f9f5e0;
     color: #333;
 }
 
@@ -48,9 +48,11 @@ body {
 
 .nav-link {
     text-decoration: none;
+    text-wrap: nowrap;
+    font-weight: 400;
     color: #333;
     padding: 10px 15px;
-    border-radius: 4px;
+    border-radius: 2px;
     transition: background-color 0.2s ease;
 }
 
@@ -60,7 +62,7 @@ body {
 
 /* Main Content */
 .main-content {
-    padding: 40px 30px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -110,7 +112,16 @@ body {
     transition: background-color 0.2s ease-in-out;
     margin-right: 10px;
 }
-
+.submit{
+    width: 50%;
+    background-color: #008300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 .btn-edit {
     background-color: #5bc0de;
 }
@@ -123,4 +134,11 @@ body {
 
 .btn-delete:hover {
     background-color: #c9302c;
+}
+.page-header {
+    padding: 20px;
+    width: 100vw;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
 }

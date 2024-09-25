@@ -1,63 +1,92 @@
-/* Item Details Container */
+/* General body styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Centering the item details card */
 .item-details-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-  }
-  
-  .item-details {
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Item Title and Information */
-  .item-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .item-quantity,
-  .item-added-at {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  /* Action Buttons */
-  .item-actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #fff;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .btn-warn {
-    background-color: #f0ad4e;
-  }
-  
-  .btn-warn:hover {
-    background-color: #ec971f;
-  }
-  
-  .btn-danger {
-    background-color: #d9534f;
-  }
-  
-  .btn-danger:hover {
-    background-color: #c9302c;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* The card for item details */
+.item-details-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Item title */
+.item-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Item quantity and added date */
+.item-quantity,
+.item-added-at {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Action buttons */
+.item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Mark as Purchased button */
+.mark-purchased-container {
+  margin-top: 20px;
+}
+
+.mark-purchased-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.mark-purchased-btn:hover {
+  background-color: #218838;
+}
+
+/* Edit and Delete buttons */
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+  background-color: #5bc0de;
+}
+
+.btn-edit:hover {
+  background-color: #31b0d5;
+}
+
+.btn-delete {
+  background-color: #d9534f;
+}
+.btn-delete:hover {
+  background-color: #c9302c;
+}

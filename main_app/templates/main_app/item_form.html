@@ -8,16 +8,17 @@
 {% block content %}
 <div class="page-header">
   {% if item %}
-    <h1>Edit {{ item.name }}</h1>
+    <h1 class="page-title">Edit {{ item.name }}</h1>
   {% else %}
-    <h1>Add an Item</h1>
+    <h1 class="page-title">Add an Item</h1>
   {% endif %}
 </div>
 <form action="" method='post' class='form-container'>
   {% csrf_token %}
-  <table>
+  <table class="form-table">
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn submit">Submit</button>
+  <a href="{% url 'shopping-list' %}" class="btn cancel-btn">Cancel</a>
+  <button type="submit" class="btn submit-btn">Submit</button>
 </form>
 {% endblock %}
