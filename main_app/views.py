@@ -20,7 +20,8 @@ def shopping_list(request):
     items = Item.objects.filter(user=request.user, purchased = False)
     categories = []
     for item in items:
-        categories.append(item.get_full_category_name())
+        if not (item.get_full_category_name() in categories):
+            categories.append(item.get_full_category_name())
     return render(request, 'items/index.html', {'items':items, 'categories': categories})
 
 @login_required
@@ -28,7 +29,8 @@ def shopping_list_by_cat(request,cat):
     items = Item.objects.filter(user=request.user, purchased = False)
     categories = []
     for item in items:
-        categories.append(item.get_full_category_name())
+        if not (item.get_full_category_name() in categories):
+            categories.append(item.get_full_category_name())
 
     def get_category_key_by_name(category_name): # you have to own pride in such a method... ! 
         for key, value in CATEGORY_CHOICES:
